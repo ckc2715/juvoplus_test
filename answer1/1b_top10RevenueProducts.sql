@@ -15,7 +15,7 @@ with top1_seller_by_catetory as (
 
 select 
 p.category, 
-count(s.product_id) as no_of_orders, 
+count(s.order_id) as no_of_orders, 
 sum(s.quantity) as sold_counts, 
 sum(s.total_revenue) as category_total_revenue,
 t.product_id as bestseller_product_id,
@@ -26,4 +26,4 @@ inner join salesorder s on p.product_id = s.product_id
 left join top1_seller_by_catetory t on t.category = p.category
 group by p.category
 order by sum(s.total_revenue) desc
-limit 10
+limit 10;
