@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  product-api:
+    image: product-api:1.0
+    build:
+      context: ./answer2
+      dockerfile: Dockerfile
+      target: builder
+    volumes:
+      - ./answer2/src:/usr/app/src
+      - ./answer2/nodemon.json:/usr/app/nodemon.json
+      - /usr/app/node_modules
+    container_name: product-api
+    env_file: ./answer2/.env
+    environment:
+      - TZ=Asia/Hong_Kong
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+    command: npm run dev
+  product-web:
+    build:
+      context: ./answer3
+    ports:
+      - "8081:8081"
+    container_name: product-web
+    stdin_open: true
+    volumes:
+      - ./answer3:/usr/src/app/my-app
+      - /usr/src/app/my-app/node_modules

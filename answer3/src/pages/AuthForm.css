@@ -1,0 +1,24 @@
+.auth-form-container {
+  margin-top: 80px !important;
+  padding: 30px 30px 0 30px;
+  width: 400px;
+  min-height: 300px;
+  max-height: 350px;
+  margin: 0 auto;
+}
+
+.auth-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.auth-input {
+  margin-top: 30px !important;
+  width: 100%;
+}
+
+.login-button {
+  margin-top: 35px !important;
+  width: 100%;
+}
